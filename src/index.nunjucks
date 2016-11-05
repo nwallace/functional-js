@@ -5,15 +5,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="main-container">
-  <div class="title">
-    <h1>Functional Programming: Demystified</h1>
-    <p>
-      Source code and notes can be found here:
-      <br/>
-      <a href="{{projectHomepage}}" target="_blank">{{projectHomepage}}</a>
-    </p>
-  </div>
-  <div id="app">Loading...</div>
+<div class="title">
+  <h2>Functional Programming: Demystified</h2>
+  <p>
+    Source code and notes:
+    <a href="{{projectHomepage}}" target="_blank">{{projectHomepage}}</a>
+  </p>
 </div>
+
+<main id="app">
+  Loading...
+</main>
 {% endblock %}

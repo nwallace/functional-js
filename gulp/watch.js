@@ -19,7 +19,6 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
         path.join(dirs.source, '**/*.nunjucks'),
         path.join(dirs.source, dirs.data, '**/*.{json,yaml,yml}')
       ], ['nunjucks']);
-      
 
       // Copy
       gulp.watch([
@@ -32,6 +31,13 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
       gulp.watch([
         path.join(dirs.source, dirs.images, '**/*.{jpg,jpeg,gif,svg,png}')
       ], ['imagemin']);
+
+      // Test files
+      if (args._ === "test") {
+        gulp.watch([
+          path.join(dirs.tests, '**/*.js')
+        ], ['tests']);
+      }
 
       // All other files
       gulp.watch([

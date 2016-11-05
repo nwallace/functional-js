@@ -81,6 +81,7 @@
     "baseUrl": "./",
     "directories": {
       "source": "src",
+      "tests": "tests",
       "destination": "build",
       "temporary": "tmp",
       "//": "Directories relative to `source` directory",

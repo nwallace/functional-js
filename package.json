@@ -1,0 +1,19 @@
+{
+  "name": "functional-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwallace/functional-js.git"
+  },
+  "author": "Nathan Wallace <nathan@nosuchthingastwo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nwallace/functional-js/issues"
+  },
+  "homepage": "https://github.com/nwallace/functional-js#readme"
+}

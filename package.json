@@ -13,6 +13,7 @@
   "homepage": "https://github.com/nwallace/functional-js",
   "dependencies": {
     "normalize.css": "~3.0.3",
+    "lodash": "^4.16.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },

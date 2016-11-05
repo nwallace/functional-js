@@ -69,7 +69,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
               plugins.util.colors.cyan(entry)
               + ' was browserified: '
               + plugins.util.colors.magenta(time + 's'));
-            return browserSync.reload('*.js');
+            return browserSync.reload('*.{js,jsx}');
           });
       };
 

@@ -1,21 +1,18 @@
 {% extends '_layouts/base.nunjucks' %}
 
-{% import "_modules/link/link.nunjucks" as link %}
+{% block config %}
+  {% set projectHomepage = config.homepage %}
+{% endblock %}
 
 {% block content %}
 <div class="main-container">
-  <div class="yeogurt-info">
-    <h1>Welcome to Yeogurt!</h1>
+  <div class="title">
+    <h1>Functional Programming: Demystified</h1>
     <p>
-      Take a look at the {{link.content({
-        href: 'https://github.com/larsonjj/generator-yeogurt#yeogurt-generator---',
-        text: 'documentation'
-      })}} and start mixing up something awesome.
-    </p>
-    <p>
-      <img src="images/yeogurt-swirl.png" width="75px" class="logo" />
+      Source code and notes can be found here:
+      <br/>
+      <a href="{{projectHomepage}}" target="_blank">{{projectHomepage}}</a>
     </p>
   </div>
 </div>
-<code class="version">v1.5.3</code>
 {% endblock %}

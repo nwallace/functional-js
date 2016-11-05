@@ -5,6 +5,7 @@ import path from 'path';
 import foldero from 'foldero';
 import nunjucks from 'gulp-nunjucks-html';
 import yaml from 'js-yaml';
+import {homepage} from '../package.json';
 
 export default function(gulp, plugins, args, config, taskTarget, browserSync) {
   let dirs = config.directories;
@@ -55,7 +56,7 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
     .pipe(plugins.changed(dest))
     .pipe(plugins.plumber())
     .pipe(plugins.data({
-      config: config,
+      config: Object.assign({homepage: homepage}, config),
       debug: true,
       site: {
         data: siteData

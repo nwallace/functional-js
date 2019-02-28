@@ -2,6 +2,12 @@ import React from 'react';
 import Errors from './errors.jsx';
 import { validateSignUp } from '../validations.js';
 
+var makeFieldChangeHandler = function(component, field) {
+  return function(event) {
+    component.setState({[field]: event.target.value});
+  };
+};
+
 export default React.createClass({
 
   getInitialState() {
@@ -32,35 +38,23 @@ export default React.createClass({
           <label htmlFor="username">Username</label>
           <input id="username"
                  value={this.state.username}
-                 onChange={this.handleUsernameChange} />
+                 onChange={makeFieldChangeHandler(this, "username")} />
 
           <label htmlFor="password">Password</label>
           <input id="password"
                  value={this.state.password}
-                 onChange={this.handlePasswordChange} />
+                 onChange={makeFieldChangeHandler(this, "password")} />
 
           <label htmlFor="password-confirmation">Password Confirmation</label>
           <input id="password-confirmation"
                  value={this.state.passwordConfirmation}
-                 onChange={this.handlePasswordConfirmationChange} />
+                 onChange={makeFieldChangeHandler(this, "passwordConfirmation")} />
           <br/>
 
           <input type="submit" value="Submit" className="button-primary" />
         </form>
       );
     }
-  },
-
-  handleUsernameChange(event) {
-    this.setState({username: event.target.value});
-  },
-
-  handlePasswordChange(event) {
-    this.setState({password: event.target.value});
-  },
-
-  handlePasswordConfirmationChange(event) {
-    this.setState({passwordConfirmation: event.target.value});
   },
 
   handleSubmit(event) {

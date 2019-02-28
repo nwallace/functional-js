@@ -50,7 +50,6 @@ gulp.task('build', [
   'copy',
   'imagemin',
   'nunjucks',
-  'sass',
   'browserify'
 ]);
 
@@ -59,7 +58,6 @@ gulp.task('serve', [
   'imagemin',
   'copy',
   'nunjucks',
-  'sass',
   'browserify',
   'browserSync',
   'watch'

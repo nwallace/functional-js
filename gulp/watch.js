@@ -8,11 +8,6 @@ export default function(gulp, plugins, args, config, taskTarget, browserSync) {
   // Watch task
   gulp.task('watch', () => {
     if (!args.production) {
-      // Styles
-      gulp.watch([
-        path.join(dirs.source, dirs.styles, '**/*.{scss,sass}'),
-        path.join(dirs.source, dirs.modules, '**/*.{scss,sass}')
-      ], ['sass']);
 
       // Nunjucks Templates
       gulp.watch([

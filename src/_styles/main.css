@@ -20,20 +20,19 @@ body {
   margin-bottom: 40px;
   padding: 30px 20px;
   text-align: center;
+}
 
-  a {
-    &, &:visited {
-      color: #bbedfc;
-    }
-    &:hover,  {
+  .title a,
+  .title a:visited {
+    color: #bbedfc;
+  }
+  .title a:hover,  {
       color: darken(#bbedfc, 20);
-    }
   }
 
-  p {
+  .title p {
     margin-bottom: 0;
   }
-}
 
 main {
   margin: 0 auto;
@@ -58,8 +57,8 @@ form input[type=submit] {
   list-style: none;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
 
-  li {
+  .errors li {
     margin-bottom: 0;
   }
-}

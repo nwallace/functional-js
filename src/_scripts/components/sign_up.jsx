@@ -43,6 +43,7 @@ export default React.createClass({
           <input id="password-confirmation"
                  value={this.state.passwordConfirmation}
                  onChange={this.handlePasswordConfirmationChange} />
+          <br/>
 
           <input type="submit" value="Submit" className="button-primary" />
         </form>

@@ -1,34 +1,48 @@
+import { humanize } from './utilities';
+
+var makeErrorDetector = function(errorMsg, detectorTest) {
+  return function(input) {
+    if (detectorTest(input)) {
+      return errorMsg;
+    } else {
+      return null;
+    }
+  };
+};
+
+var makeIsBlankDetector = function(field) {
+  return makeErrorDetector(humanize(field) + " can't be blank", function(input) {
+    return !/\w/.test(input[field]);
+  });
+};
+var makeIsShorterThanDetector = function(field, minLength) {
+  return makeErrorDetector(humanize(field) + " must be at least " + minLength + " characters", function(input) {
+    return input[field].length < minLength;
+  });
+};
+
+var signUpErrorDetectors = [
+  makeIsBlankDetector("username"),
+  makeIsShorterThanDetector("username", 4),
+  makeErrorDetector("Username must be 30 characters or less", function(input) {
+    return input.username.length > 30;
+  }),
+  makeIsBlankDetector("password"),
+  makeIsShorterThanDetector("password", 8),
+  makeErrorDetector("Password confirmation doesn't match", function(input) {
+    return input.password !== input.passwordConfirmation;
+  }),
+];
+
 export default {
-
   validateSignUp(input) {
-    let { username, password, passwordConfirmation } = input,
-        errors = [];
-
-    // Validate username
-    if (!/\w/.test(username)) {
-      errors.push("Username can't be blank");
+    let errors = [];
+    for (let i=0; i < signUpErrorDetectors.length; i++) {
+      let errorMsg = signUpErrorDetectors[i](input);
+      if (errorMsg) {
+        errors.push(errorMsg);
+      }
     }
-    if (username.length < 4) {
-      errors.push("Username must be at least 4 characters");
-    }
-    if (username.length > 30) {
-      errors.push("Username must be 30 characters or less");
-    }
-
-    // Validate password
-    if (!/\w/.test(password)) {
-      errors.push("Password can't be blank");
-    }
-    if (password.length < 8) {
-      errors.push("Password must be at least 8 characters");
-    }
-
-    // Validate password confirmation
-    if (passwordConfirmation !== password) {
-      errors.push("Password confirmation doesn't match");
-    }
-
     return errors;
   },
 };
-
